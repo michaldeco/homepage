@@ -180,7 +180,7 @@ section {
   padding: 0;
 }
 
-.projects li + li {
+.projects > li + li {
   margin-top: 1.75rem;
 }
 
@@ -197,13 +197,13 @@ section {
   padding: 0;
 }
 
-.experience li {
+.experience > li {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.experience li + li {
+.experience > li + li {
   margin-top: 1.25rem;
 }
 
@@ -225,7 +225,7 @@ img.logo {
   transition: filter 0.2s, opacity 0.2s;
 }
 
-.experience li:hover img.logo {
+.experience > li:hover img.logo {
   filter: none;
   opacity: 1;
 }
