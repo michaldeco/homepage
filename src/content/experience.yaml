@@ -1,0 +1,21 @@
+# Employment history, sorted by `order` (1 = most recent). `id` must be unique.
+# Put logo files (SVG preferred) in public/logos/ and reference them by file name.
+# Leave `logo` out to show a placeholder box with the company's initial.
+- id: company-a
+  order: 1
+  company: "[Company A]"
+  role: "[Senior Software Engineer]"
+  period: "[2022–2025]"
+  # logo: company-a.svg
+
+- id: company-b
+  order: 2
+  company: "[Company B]"
+  role: "[Software Engineer]"
+  period: "[2019–2022]"
+
+- id: company-c
+  order: 3
+  company: "[Company C]"
+  role: "[Junior Developer]"
+  period: "[2016–2019]"

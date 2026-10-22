@@ -1,0 +1,101 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const profile = await getEntry('profile', 'profile');
+if (!profile) throw new Error('Missing src/content/profile.md');
+const { Content: Bio } = await render(profile);
+const p = profile.data;
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order;
+const skills = (await getCollection('skills')).sort(byOrder);
+const experience = (await getCollection('experience')).sort(byOrder);
+const projects = (await getCollection('projects')).sort(byOrder);
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => ({ ...project.data, Content: (await render(project)).Content })),
+);
+---
+
+<Base title={`${p.name} — ${p.title}`} description={p.description}>
+  <header class="intro">
+    {/* Optional photo: add public/photo.jpg and uncomment */}
+    {/* <img class="avatar" src="/photo.jpg" alt={p.name} width="96" height="96" /> */}
+    <h1>{p.name}</h1>
+    <p class="tagline">{p.title}</p>
+    <p class="meta">{p.location} · {p.timezone} · {p.availability}</p>
+    <nav class="links">
+      <a href={`mailto:${p.email}`}>Email</a>
+      {p.links.map((link) => <a href={link.url}>{link.label}</a>)}
+    </nav>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <Bio />
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      {
+        skills.map((group) => (
+          <>
+            <dt>{group.data.label}</dt>
+            <dd>
+              <ul class="pills">
+                {group.data.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <ul class="experience">
+      {
+        experience.map(({ data }) => (
+          <li>
+            {data.logo ? (
+              <img class="logo" src={`/logos/${data.logo}`} alt="" loading="lazy" />
+            ) : (
+              <span class="logo logo-placeholder" aria-hidden="true">{data.company.replace(/^\W+/, '').charAt(0)}</span>
+            )}
+            <div>
+              <h3>{data.company}</h3>
+              <p class="role">{data.role} · {data.period}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Selected work</h2>
+    <ul class="projects">
+      {
+        renderedProjects.map(({ title, company, role, period, tags, Content }) => (
+          <li>
+            <h3>{title}</h3>
+            <p class="role">{company ? `${role} at ${company}` : role} · {period}</p>
+            <Content />
+            {tags.length > 0 && (
+              <ul class="pills pills-small">
+                {tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>{p.contactNote}</p>
+    <p><a class="cta" href={`mailto:${p.email}`}>{p.email}</a></p>
+  </section>
+</Base>

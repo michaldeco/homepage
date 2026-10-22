@@ -1,0 +1,20 @@
+# Skill groups, sorted by `order`. `id` must be unique.
+- id: languages
+  order: 1
+  label: Languages
+  items: ["[Python]", "[TypeScript]", "[Go]"]
+
+- id: frameworks
+  order: 2
+  label: Frameworks
+  items: ["[Django]", "[FastAPI]", "[React]"]
+
+- id: cloud
+  order: 3
+  label: Cloud & DevOps
+  items: ["[AWS]", "[Cloudflare]", "[Docker]", "[Terraform]", "[CI/CD]"]
+
+- id: data
+  order: 4
+  label: Data
+  items: ["[PostgreSQL]", "[Redis]", "[BigQuery]"]
