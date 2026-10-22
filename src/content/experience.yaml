@@ -1,21 +1,38 @@
 # Employment history, sorted by `order` (1 = most recent). `id` must be unique.
 # Put logo files (SVG preferred) in public/logos/ and reference them by file name.
 # Leave `logo` out to show a placeholder box with the company's initial.
-- id: company-a
+- id: lambda-league
   order: 1
-  company: "[Company A]"
-  role: "[Senior Software Engineer]"
-  period: "[2022–2025]"
-  # logo: company-a.svg
+  company: Lambda League
+  role: Software Engineer
+  period: 2025–2026
 
-- id: company-b
+- id: us-steel
   order: 2
-  company: "[Company B]"
-  role: "[Software Engineer]"
-  period: "[2019–2022]"
+  company: U. S. Steel Košice
+  role: Data Scientist
+  period: 2021–2025
 
-- id: company-c
+- id: gohealth
   order: 3
-  company: "[Company C]"
-  role: "[Junior Developer]"
-  period: "[2016–2019]"
+  company: GoHealth
+  role: Data Engineer
+  period: 2019–2021
+
+- id: vse
+  order: 4
+  company: VSE (innogy group)
+  role: Specialist, Customer Behaviour
+  period: 2017–2019
+
+- id: globallogic
+  order: 5
+  company: GlobalLogic Slovakia
+  role: Test Engineer
+  period: 2015–2017
+
+- id: upjs
+  order: 6
+  company: Pavol Jozef Šafárik University in Košice
+  role: PhD Researcher in Mathematics
+  period: 2011–2015

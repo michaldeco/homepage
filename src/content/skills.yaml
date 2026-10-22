@@ -2,19 +2,24 @@
 - id: languages
   order: 1
   label: Languages
-  items: ["[Python]", "[TypeScript]", "[Go]"]
-
-- id: frameworks
-  order: 2
-  label: Frameworks
-  items: ["[Django]", "[FastAPI]", "[React]"]
-
-- id: cloud
-  order: 3
-  label: Cloud & DevOps
-  items: ["[AWS]", "[Cloudflare]", "[Docker]", "[Terraform]", "[CI/CD]"]
+  items: [Python, SQL]
 
 - id: data
+  order: 2
+  label: Data & ML
+  items: [scikit-learn, Airflow, ETL pipelines, Data warehousing]
+
+- id: web
+  order: 3
+  label: Web
+  items: [Django, Flask, REST APIs]
+
+- id: tools
   order: 4
-  label: Data
-  items: ["[PostgreSQL]", "[Redis]", "[BigQuery]"]
+  label: Tools
+  items: [Docker, Git, Selenium]
+
+- id: math
+  order: 5
+  label: Mathematics
+  items: [Statistics, Probability, Graph theory]
