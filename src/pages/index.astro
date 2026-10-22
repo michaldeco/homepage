@@ -25,7 +25,7 @@ const renderedProjects = await Promise.all(
     <p class="meta">{p.location} · {p.timezone} · {p.availability}</p>
     <nav class="links">
       <a href={`mailto:${p.email}`}>Email</a>
-      {p.links.map((link) => <a href={link.url}>{link.label}</a>)}
+      {p.links.map((link) => <a href={link.url} rel="me">{link.label}</a>)}
     </nav>
   </header>
 

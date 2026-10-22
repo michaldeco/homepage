@@ -17,11 +17,12 @@ Layout and styles: `src/layouts/Base.astro`, `src/pages/index.astro`, `src/style
 
 ## Development
 
-Requires Node.js 22.12 or newer.
+Requires Node.js 22.12 or newer (`.node-version` pins the major version for Cloudflare builds).
 
 ```sh
 npm install      # once, and after pulling dependency changes
 npm run dev      # live preview at http://localhost:4321
+npm run check    # type-check .astro and TypeScript files
 npm run build    # production build into dist/
 npm run preview  # serve the built dist/ locally
 ```
