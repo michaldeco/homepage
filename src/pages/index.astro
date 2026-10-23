@@ -12,7 +12,11 @@ const skills = (await getCollection('skills')).sort(byOrder);
 const experience = (await getCollection('experience')).sort(byOrder);
 const projects = (await getCollection('projects')).sort(byOrder);
 const renderedProjects = await Promise.all(
-  projects.map(async (project) => ({ ...project.data, Content: (await render(project)).Content })),
+  projects.map(async (project) => ({
+    ...project.data,
+    hasDetails: Boolean(project.body?.trim()),
+    Content: (await render(project)).Content,
+  })),
 );
 ---
 
@@ -77,11 +81,17 @@ const renderedProjects = await Promise.all(
     <h2>Selected work</h2>
     <ul class="projects">
       {
-        renderedProjects.map(({ title, company, role, period, tags, Content }) => (
+        renderedProjects.map(({ title, summary, company, role, period, tags, hasDetails, Content }) => (
           <li>
             <h3>{title}</h3>
             <p class="role">{company ? `${role} at ${company}` : role} · {period}</p>
-            <Content />
+            <p>{summary}</p>
+            {hasDetails && (
+              <details class="more">
+                <summary>Would you like to know more?</summary>
+                <Content />
+              </details>
+            )}
             {tags.length > 0 && (
               <ul class="pills pills-small">
                 {tags.map((tag) => <li>{tag}</li>)}

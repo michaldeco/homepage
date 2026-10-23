@@ -24,6 +24,8 @@ const projects = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/projects' }),
   schema: z.object({
     title: z.string(),
+    // Always visible; the Markdown body (optional) is shown behind a "know more" toggle.
+    summary: z.string(),
     company: z.string().optional(),
     role: z.string(),
     period: z.string(),
