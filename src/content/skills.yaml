@@ -17,7 +17,7 @@
 - id: tools
   order: 4
   label: Tools
-  items: [Docker, Git, Selenium]
+  items: [Docker, Git]
 
 - id: math
   order: 5
