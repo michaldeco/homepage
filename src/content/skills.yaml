@@ -7,19 +7,24 @@
 - id: data
   order: 2
   label: Data & ML
-  items: [scikit-learn, Airflow, ETL pipelines, Data warehousing]
+  items: [PyTorch, scikit-learn, Airflow, ETL pipelines, Data warehousing]
 
 - id: web
   order: 3
   label: Web
   items: [Django, Flask, REST APIs]
 
-- id: tools
+- id: databases
   order: 4
+  label: Databases
+  items: [SQL Server, Oracle, Redis]
+
+- id: tools
+  order: 5
   label: Tools
   items: [Docker, Git]
 
 - id: math
-  order: 5
+  order: 6
   label: Mathematics
-  items: [Statistics, Probability, Graph theory]
+  items: [Optimization, Linear programming, Statistics, Probability]
