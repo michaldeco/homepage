@@ -1,11 +1,11 @@
 ---
 title: Airflow pipelines and shared tooling for a data warehouse
-summary: Built Airflow pipelines that automatically collected reports from insurance carriers' portals without an API and loaded them into a layered SQL Server data warehouse, and wrote shared helpers my teammates adopted.
+summary: Built Airflow pipelines that fed a layered SQL Server data warehouse, including automated report downloads from insurance carriers' partner portals that had no API, and wrote shared helpers my teammates adopted.
 company: GoHealth
 role: Data Engineer
 period: 2019–2021
 order: 2
-tags: [Python, Airflow, Selenium, SQL Server, AWS S3, Jenkins]
+tags: [Python, Airflow, SQL Server, AWS S3, Jenkins]
 ---
 
 GoHealth is a US online marketplace for health insurance. I joined one of its data engineering teams, five to eight engineers, and spent most of my time writing Airflow pipelines, from small jobs to large ones.
