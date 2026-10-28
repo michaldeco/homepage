@@ -12,7 +12,7 @@
 - id: analysis
   order: 3
   label: Data analysis
-  items: [pandas, SciPy, statsmodels, Plotly]
+  items: [pandas, SciPy, statsmodels, Darts, Plotly]
 
 - id: data
   order: 4
@@ -37,4 +37,4 @@
 - id: methods
   order: 8
   label: Methods
-  items: [Statistics, Probability, Optimization, Linear programming, Data warehousing, Entity resolution]
+  items: [Statistics, Probability, Optimization, Linear programming, Time series forecasting, Data warehousing, Entity resolution]
