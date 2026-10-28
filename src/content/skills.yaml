@@ -7,12 +7,12 @@
 - id: ml
   order: 2
   label: Machine learning
-  items: [PyTorch, LightGBM, scikit-learn, OpenAI API]
+  items: [PyTorch, LightGBM, scikit-learn, Darts, OpenAI API]
 
 - id: analysis
   order: 3
   label: Data analysis
-  items: [pandas, SciPy, statsmodels, Darts, Plotly]
+  items: [pandas, SciPy, statsmodels, Plotly]
 
 - id: data
   order: 4
