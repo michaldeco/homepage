@@ -4,27 +4,37 @@
   label: Languages
   items: [Python, SQL]
 
-- id: data
+- id: ml
   order: 2
-  label: Data & ML
-  items: [PyTorch, scikit-learn, Airflow, ETL pipelines, Data warehousing]
+  label: Machine learning
+  items: [PyTorch, LightGBM, scikit-learn, OpenAI API]
 
-- id: web
+- id: analysis
   order: 3
-  label: Web
-  items: [Django, Flask, REST APIs]
+  label: Data analysis
+  items: [pandas, SciPy, statsmodels, Plotly]
+
+- id: data
+  order: 4
+  label: Data engineering
+  items: [Dagster, Airflow, SQLAlchemy, Alembic]
 
 - id: databases
-  order: 4
-  label: Databases
-  items: [SQL Server, Oracle, Redis]
-
-- id: tools
   order: 5
-  label: Tools
-  items: [Docker, Git]
+  label: Databases
+  items: [PostgreSQL, pgvector, SQL Server, Oracle, Redis]
 
-- id: math
+- id: web
   order: 6
-  label: Mathematics
-  items: [Optimization, Linear programming, Statistics, Probability]
+  label: Web
+  items: [Django, FastAPI, Flask]
+
+- id: cloud
+  order: 7
+  label: Cloud & tools
+  items: [AWS, Terraform, Docker, Git]
+
+- id: methods
+  order: 8
+  label: Methods
+  items: [Statistics, Probability, Optimization, Linear programming, Data warehousing, Entity resolution]
