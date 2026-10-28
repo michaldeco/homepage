@@ -309,6 +309,9 @@ section {
   height: 2.75rem;
   border-radius: 8px;
   object-fit: contain;
+  padding: 0.3rem;
+  background: #fff;
+  border: 1px solid var(--line);
 }
 
 img.logo {

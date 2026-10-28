@@ -2,36 +2,42 @@
 # Put logo files (SVG preferred) in public/logos/ and reference them by file name.
 # Leave `logo` out to show the name only.
 - id: lambda-league
+  logo: lambda_league.svg
   order: 1
   company: Lambda League
   role: Software Engineer
   period: 2025–2026
 
 - id: us-steel
+  logo: uss.svg
   order: 2
   company: U. S. Steel Košice
   role: Data Scientist
   period: 2021–2025
 
 - id: gohealth
+  logo: gohealth.svg
   order: 3
   company: GoHealth
   role: Data Engineer
   period: 2019–2021
 
 - id: vse
+  logo: vse.svg
   order: 4
   company: VSE (innogy group)
   role: Data Specialist
   period: 2017–2019
 
 - id: globallogic
+  logo: globallogic.svg
   order: 5
   company: GlobalLogic Slovakia
   role: Test Engineer
   period: 2015–2017
 
 - id: upjs
+  logo: upjs.png
   order: 6
   company: Pavol Jozef Šafárik University in Košice
   role: PhD Researcher in Mathematics
