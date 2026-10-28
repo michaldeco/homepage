@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Share preview (og:image). Regenerate: rsvg-convert design/og-image.svg -o public/og-image.png -->
+  <rect width="1200" height="630" fill="#fdfdfc"/>
+  <rect x="96" y="200" width="8" height="230" fill="#2456d6"/>
+  <g font-family="Noto Sans, sans-serif">
+    <text x="140" y="290" font-size="84" font-weight="700" fill="#1f1f1f">Michal Dečo</text>
+    <text x="140" y="360" font-size="38" fill="#6b6b6b">Software Engineer · Python, Data &amp; Machine Learning</text>
+    <text x="140" y="422" font-size="32" fill="#2456d6">michaldeco.com</text>
+  </g>
+</svg>

@@ -14,7 +14,7 @@ links:
 contactNote: Have a project in mind? Send me a short description and I'll get back to you.
 ---
 
-I'm a software engineer with a PhD in mathematics and more than ten years of industry experience. I started in test automation and moved into data: forecasting inputs at an electricity supplier, then pipelines and a data warehouse at GoHealth. At U. S. Steel Košice, I spent more than four years on a toolkit that combines machine learning and linear programming to choose the scrap mix for every heat of steel. Most recently, as a remote contractor for a US recruiting startup, I worked on candidate scoring, entity resolution and the data platform behind them.
+I'm a software engineer with a PhD in mathematics and more than ten years of industry experience. I started in test automation, on a web application for physicians at a medical device company, and moved into data: forecasting inputs at an electricity supplier, then pipelines and a data warehouse at GoHealth. At U. S. Steel Košice, I spent more than four years on a toolkit that combines machine learning and linear programming to choose the scrap mix for every heat of steel. Most recently, as a remote contractor for a US recruiting startup, I worked on candidate scoring, entity resolution and the data platform behind them.
 
 **How I work**
 

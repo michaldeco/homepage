@@ -12,6 +12,7 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 | Skills (shown as pills) | `src/content/skills.yaml` |
 | Employment history (with optional logos) | `src/content/experience.yaml` + logo files in `public/logos/` |
 | Profile photo (optional) | `public/photo.jpg`, then uncomment the `<img>` in `src/pages/index.astro` |
+| Share preview image (link previews on LinkedIn, Slack, …) | edit `design/og-image.svg`, then `rsvg-convert design/og-image.svg -o public/og-image.png` |
 
 Layout and styles: `src/layouts/Base.astro`, `src/pages/index.astro`, `src/styles/global.css`.
 

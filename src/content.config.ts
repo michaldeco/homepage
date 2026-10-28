@@ -12,8 +12,8 @@ const profile = defineCollection({
     location: z.string(),
     timezone: z.string(),
     availability: z.string(),
-    email: z.string(),
-    links: z.array(z.object({ label: z.string(), url: z.string() })),
+    email: z.email(),
+    links: z.array(z.object({ label: z.string(), url: z.url() })),
     contactNote: z.string(),
   }),
 });
