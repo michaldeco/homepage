@@ -4,7 +4,7 @@ summary: In a small team, built a toolkit that recommends the scrap mix for each
 company: U. S. Steel Košice
 role: Data Scientist
 period: 2021–2025
-order: 1
+order: 4
 tags: [Python, PyTorch, Linear programming, Django, Redis]
 ---
 

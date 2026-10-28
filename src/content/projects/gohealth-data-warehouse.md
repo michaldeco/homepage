@@ -4,7 +4,7 @@ summary: Built Airflow pipelines that fed a layered SQL Server data warehouse, i
 company: GoHealth
 role: Data Engineer
 period: 2019–2021
-order: 2
+order: 5
 tags: [Python, Airflow, SQL Server, AWS S3, Jenkins]
 ---
 

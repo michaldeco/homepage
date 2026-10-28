@@ -4,7 +4,7 @@ summary: Moved a daily Excel/VBA data process to fully automated Python, step by
 company: VSE (innogy group)
 role: Data Specialist
 period: 2017–2019
-order: 3
+order: 6
 tags: [Python, REST API, Excel/VBA automation, Testing]
 ---
 
