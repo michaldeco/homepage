@@ -15,6 +15,7 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 | Share preview image (link previews on LinkedIn, Slack, …) | edit `design/og-image.svg`, then `rsvg-convert design/og-image.svg -o public/og-image.png` |
 
 Layout and styles: `src/layouts/Base.astro`, `src/pages/index.astro`, `src/styles/global.css`.
+Not-found page: `src/pages/404.astro`. Response headers on Cloudflare: `public/_headers`.
 
 ## Development
 

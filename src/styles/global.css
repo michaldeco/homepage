@@ -336,3 +336,36 @@ footer {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Print: light colors, no navigation or toggles, stories expanded (see Base.astro) */
+@media print {
+  :root {
+    --bg: #fff;
+    --text: #000;
+    --muted: #555;
+    --accent: #000;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .sections,
+  .more > summary {
+    display: none;
+  }
+
+  .experience > li {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  img.logo {
+    filter: none;
+    opacity: 1;
+  }
+}
