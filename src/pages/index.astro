@@ -26,7 +26,7 @@ const renderedProjects = await Promise.all(
     {/* <img class="avatar" src="/photo.jpg" alt={p.name} width="96" height="96" /> */}
     <h1>{p.name}</h1>
     <p class="tagline">{p.title}</p>
-    <p class="meta">{p.location} · {p.timezone} · {p.availability}</p>
+    <p class="meta">{p.location} · {p.timezone}<span class="sep"> · </span><span class="status">{p.availability}</span></p>
     <nav class="links">
       <a href={`mailto:${p.email}`}>Email</a>
       {p.links.map((link) => <a href={link.url} rel="me">{link.label}</a>)}
@@ -62,11 +62,7 @@ const renderedProjects = await Promise.all(
       {
         experience.map(({ data }) => (
           <li>
-            {data.logo ? (
-              <img class="logo" src={`/logos/${data.logo}`} alt="" loading="lazy" />
-            ) : (
-              <span class="logo logo-placeholder" aria-hidden="true">{data.company.replace(/^\W+/, '').charAt(0)}</span>
-            )}
+            {data.logo && <img class="logo" src={`/logos/${data.logo}`} alt="" loading="lazy" />}
             <div>
               <h3>{data.company}</h3>
               <p class="role">{data.role} · {data.period}</p>

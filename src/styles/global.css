@@ -4,6 +4,9 @@
   --muted: #6b6b6b;
   --line: #e6e6e3;
   --accent: #2456d6;
+  --pill-bg: #f3f3f0;
+  --pill-line: #d9d9d4;
+  --ok: #1a7f37;
   color-scheme: light dark;
 }
 
@@ -14,6 +17,9 @@
     --muted: #9a9a96;
     --line: #2a2a2a;
     --accent: #7aa2ff;
+    --pill-bg: #1e1e1e;
+    --pill-line: #363636;
+    --ok: #3fb950;
   }
 }
 
@@ -111,6 +117,32 @@ section {
   font-size: 0.95rem;
 }
 
+.status {
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--ok);
+  vertical-align: 0.05em;
+}
+
+@media (max-width: 480px) {
+  .meta .sep {
+    display: none;
+  }
+
+  .status {
+    display: block;
+  }
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -157,8 +189,9 @@ section {
 }
 
 .pills li {
-  border: 1px solid var(--line);
+  border: 1px solid var(--pill-line);
   border-radius: 999px;
+  background: var(--pill-bg);
   padding: 0.1rem 0.7rem;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -169,8 +202,7 @@ section {
 }
 
 .pills-small li {
-  font-size: 0.8rem;
-  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* Projects */
@@ -260,15 +292,6 @@ img.logo {
 .experience > li:hover img.logo {
   filter: none;
   opacity: 1;
-}
-
-.logo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed var(--line);
-  color: var(--muted);
-  font-weight: 600;
 }
 
 /* Contact */

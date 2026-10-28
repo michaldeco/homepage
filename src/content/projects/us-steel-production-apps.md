@@ -1,7 +1,7 @@
 ---
 title: Scrap optimization for steelmaking
 summary: In a small team, built a toolkit that recommends the scrap mix for each heat of steel, combining machine-learning models, linear-programming optimization and web apps for operators, process engineers and purchasing. Its recommendations were used for every heat in daily production for several years.
-company: U. S. Steel Košice
+company: U. S. Steel Košice
 role: Data Scientist
 period: 2021–2025
 order: 4

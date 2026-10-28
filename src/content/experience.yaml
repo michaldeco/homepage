@@ -1,6 +1,6 @@
 # Employment history, sorted by `order` (1 = most recent). `id` must be unique.
 # Put logo files (SVG preferred) in public/logos/ and reference them by file name.
-# Leave `logo` out to show a placeholder box with the company's initial.
+# Leave `logo` out to show the name only.
 - id: lambda-league
   order: 1
   company: Lambda League
@@ -9,7 +9,7 @@
 
 - id: us-steel
   order: 2
-  company: U. S. Steel Košice
+  company: U. S. Steel Košice
   role: Data Scientist
   period: 2021–2025
 
