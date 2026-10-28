@@ -21,6 +21,14 @@ const renderedProjects = await Promise.all(
 ---
 
 <Base title={`${p.name} — ${p.title}`} description={p.description}>
+  <nav class="sections" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header class="intro">
     {/* Optional photo: add public/photo.jpg and uncomment */}
     {/* <img class="avatar" src="/photo.jpg" alt={p.name} width="96" height="96" /> */}
@@ -33,47 +41,12 @@ const renderedProjects = await Promise.all(
     </nav>
   </header>
 
-  <section>
+  <section id="about">
     <h2>About</h2>
     <Bio />
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <dl class="skills">
-      {
-        skills.map((group) => (
-          <>
-            <dt>{group.data.label}</dt>
-            <dd>
-              <ul class="pills">
-                {group.data.items.map((item) => <li>{item}</li>)}
-              </ul>
-            </dd>
-          </>
-        ))
-      }
-    </dl>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <ul class="experience">
-      {
-        experience.map(({ data }) => (
-          <li>
-            {data.logo && <img class="logo" src={`/logos/${data.logo}`} alt="" loading="lazy" />}
-            <div>
-              <h3>{data.company}</h3>
-              <p class="role">{data.role} · {data.period}</p>
-            </div>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  <section>
+  <section id="work">
     <h2>Selected work</h2>
     <ul class="projects">
       {
@@ -99,7 +72,42 @@ const renderedProjects = await Promise.all(
     </ul>
   </section>
 
-  <section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      {
+        skills.map((group) => (
+          <>
+            <dt>{group.data.label}</dt>
+            <dd>
+              <ul class="pills">
+                {group.data.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="experience">
+      {
+        experience.map(({ data }) => (
+          <li>
+            {data.logo && <img class="logo" src={`/logos/${data.logo}`} alt="" loading="lazy" />}
+            <div>
+              <h3>{data.company}</h3>
+              <p class="role">{data.role} · {data.period}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
     <p>{p.contactNote}</p>
     <p><a class="cta" href={`mailto:${p.email}`}>{p.email}</a></p>

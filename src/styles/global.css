@@ -33,6 +33,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -48,7 +54,7 @@ footer {
 }
 
 main {
-  padding-block: 5rem 2rem;
+  padding-block: 2.5rem 2rem;
 }
 
 a {
@@ -92,6 +98,28 @@ p {
 section {
   padding-block: 2rem;
   border-top: 1px solid var(--line);
+}
+
+/* Section navigation */
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.sections a {
+  color: var(--muted);
+}
+
+.sections a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .sections {
+    column-gap: 0.9rem;
+  }
 }
 
 /* Intro */
