@@ -10,7 +10,7 @@ tags: [Python, Airflow, SQL Server, AWS S3, Jenkins]
 
 GoHealth is a US online marketplace for health insurance. I joined one of its data engineering teams, five to eight engineers, and spent most of my time writing Airflow pipelines, from small jobs to large ones.
 
-The largest pipeline collected regular reports from the partner portals of insurance carriers that offered no API. Using Selenium, it signed in to each portal, navigated to the reports, downloaded the CSV and Excel files and loaded each one into the data warehouse. Together the team covered dozens of files; I was responsible for five to ten of the portals. Data that would otherwise have to be downloaded by hand arrived automatically.
+The largest pipeline automated the regular download of reports from insurance carriers' portals that offered no API, and loaded each file into the data warehouse. Together the team covered dozens of files; I was responsible for five to ten of the portals. Data that would otherwise have to be downloaded by hand arrived automatically.
 
 The warehouse, mostly SQL Server with some data in AWS S3, was organized in layers: raw copies of the source data, intermediate stages for cleaning and normalization, a top layer for end users, and tables with historical data. My pipelines fed the first stages.
 
