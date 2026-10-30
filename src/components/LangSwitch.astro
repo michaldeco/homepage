@@ -1,0 +1,13 @@
+---
+import { homePath, otherLang, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const target = otherLang(lang);
+const ui = t(lang);
+---
+
+<a class="lang-switch" href={homePath(target)} hreflang={target} lang={target} title={ui['switch.title']}>{ui['switch.label']}</a>

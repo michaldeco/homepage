@@ -1,0 +1,128 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import { pick, t, type Lang } from '../i18n/ui';
+import { fixSlovakSpacing } from '../i18n/typography.mjs';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const ui = t(lang);
+// Slovak typography for texts that don't go through Markdown (frontmatter, YAML).
+const typo = (text: string) => (lang === 'sk' ? fixSlovakSpacing(text) : text);
+
+const profile = await getEntry('profile', `${lang}/profile`);
+if (!profile) throw new Error(`Missing src/content/${lang}/profile.md`);
+const { Content: Bio } = await render(profile);
+const p = profile.data;
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order;
+const skills = (await getCollection('skills')).sort(byOrder);
+const experience = (await getCollection('experience')).sort(byOrder);
+const projects = (await getCollection('projects', ({ id }) => id.startsWith(`${lang}/`))).sort(byOrder);
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => ({
+    ...project.data,
+    hasDetails: Boolean(project.body?.trim()),
+    Content: (await render(project)).Content,
+  })),
+);
+---
+
+<Base title={`${p.name} — ${p.title}`} description={p.description} lang={lang}>
+  <nav class="sections" aria-label="Sections">
+    <a href="#about">{ui['nav.about']}</a>
+    <a href="#work">{ui['nav.work']}</a>
+    <a href="#skills">{ui['nav.skills']}</a>
+    <a href="#experience">{ui['nav.experience']}</a>
+    <a href="#contact">{ui['nav.contact']}</a>
+    <LangSwitch lang={lang} />
+  </nav>
+
+  <header class="intro">
+    {/* Optional photo: add public/photo.jpg and uncomment */}
+    {/* <img class="avatar" src="/photo.jpg" alt={p.name} width="96" height="96" /> */}
+    <h1>{p.name}</h1>
+    <p class="tagline">{p.title}</p>
+    <p class="meta">{p.location} · {p.timezone}<span class="sep"> · </span><span class="status">{p.availability}</span></p>
+    <nav class="links">
+      <a href={`mailto:${p.email}`}>{ui['link.email']}</a>
+      {p.links.map((link) => <a href={link.url} rel="me">{link.label}</a>)}
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>{ui['section.about']}</h2>
+    <Bio />
+  </section>
+
+  <section id="work">
+    <h2>{ui['section.work']}</h2>
+    <ul class="projects">
+      {
+        renderedProjects.map(({ title, summary, company, role, period, tags, hasDetails, Content }) => (
+          <li>
+            <h3>{typo(title)}</h3>
+            <p class="role">{typo(company ? `${role} ${ui['project.at']} ${company}` : role)} · {period}</p>
+            <p>{typo(summary)}</p>
+            {hasDetails && (
+              <details class="more">
+                <summary>{ui['project.more']}</summary>
+                <Content />
+              </details>
+            )}
+            {tags.length > 0 && (
+              <ul class="pills pills-small">
+                {tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>{ui['section.skills']}</h2>
+    <dl class="skills">
+      {
+        skills.map((group) => (
+          <>
+            <dt>{pick(lang, group.data.label)}</dt>
+            <dd>
+              <ul class="pills">
+                {group.data.items.map((item) => <li>{pick(lang, item)}</li>)}
+              </ul>
+            </dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>{ui['section.experience']}</h2>
+    <ul class="experience">
+      {
+        experience.map(({ data }) => (
+          <li>
+            {data.logo && <img class="logo" src={`/logos/${data.logo}`} alt="" width="44" height="44" />}
+            <div>
+              <h3>{typo(pick(lang, data.company))}</h3>
+              <p class="role">{pick(lang, data.role)} · {data.period}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>{ui['section.contact']}</h2>
+    <p>{typo(p.contactNote)}</p>
+    <p><a class="cta" href={`mailto:${p.email}`}>{p.email}</a></p>
+  </section>
+</Base>

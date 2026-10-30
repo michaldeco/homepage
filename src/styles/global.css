@@ -116,6 +116,10 @@ section {
   color: var(--accent);
 }
 
+.sections .lang-switch {
+  margin-left: auto;
+}
+
 @media (max-width: 480px) {
   .sections {
     column-gap: 0.9rem;

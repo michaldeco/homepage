@@ -11,9 +11,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check && node scripts/check-translations.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.3",
     "astro": "7.3.6"
   },
   "devDependencies": {

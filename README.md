@@ -7,15 +7,30 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 
 | What | Where |
 |---|---|
-| Name, title, contact links, bio | `src/content/profile.md` |
-| Projects (one file each, sorted by `order`; `company` optional for side projects) | `src/content/projects/*.md` |
-| Skills (shown as pills) | `src/content/skills.yaml` |
+| Name, title, contact links, bio | `src/content/en/profile.md` (Slovak: `src/content/sk/profile.md`) |
+| Projects (one file each, sorted by `order`; `company` optional for side projects) | `src/content/en/projects/*.md` (Slovak: same file names in `src/content/sk/projects/`) |
+| Skills (shown as pills; group labels in both languages) | `src/content/skills.yaml` |
 | Employment history (with optional logos) | `src/content/experience.yaml` + logo files in `public/logos/` |
-| Profile photo (optional) | `public/photo.jpg`, then uncomment the `<img>` in `src/pages/index.astro` |
-| Share preview image (link previews on LinkedIn, Slack, …) | edit `design/og-image.svg`, then `rsvg-convert design/og-image.svg -o public/og-image.png` |
+| Profile photo (optional) | `public/photo.jpg`, then uncomment the `<img>` in `src/components/Home.astro` |
+| Share preview image (link previews on LinkedIn, Slack, …) | edit `design/og-image.svg`, then `rsvg-convert design/og-image.svg -o public/og-image.png`; Slovak: `og-image-sk.svg` → `og-image-sk.png` |
+| Fixed texts (navigation, headings, "know more" link, 404 page) | `src/i18n/ui.ts` |
 
-Layout and styles: `src/layouts/Base.astro`, `src/pages/index.astro`, `src/styles/global.css`.
-Not-found page: `src/pages/404.astro`. Response headers on Cloudflare: `public/_headers`.
+Layout and styles: `src/layouts/Base.astro`, `src/components/Home.astro`, `src/styles/global.css`.
+Not-found page: `src/components/NotFound.astro`. Response headers on Cloudflare: `public/_headers`.
+
+## Slovak version
+
+English is the default at `/`, Slovak lives at `/sk/`. Every content file in `src/content/en/` has a
+counterpart with the same name in `src/content/sk/`, and the YAML files hold both languages side by side.
+
+- **Translations are not literal:** natural Slovak, but the same information as the English text.
+- **Terms:** Slovak where an established term exists (strojové učenie, dátový sklad, služba); otherwise
+  the English term in *italics* (*pipeline*, *entity resolution*). Tool names stay plain.
+- **Typography:** single-letter words (v, k, s, z, a, o, u, i) are joined to the next word automatically
+  (`src/i18n/typography.mjs`), so just type normal spaces.
+- **Keeping in sync:** `npm run check` fails if a translation is missing, or if `order`, `period` or `tags`
+  differ between the languages. It warns when an English file was committed after its Slovak version
+  and prints a `git diff` command that shows what changed since the last translation.
 
 ## Development
 
@@ -24,7 +39,7 @@ Requires Node.js 22.12 or newer (`.node-version` pins the major version for Clou
 ```sh
 npm install      # once, and after pulling dependency changes
 npm run dev      # live preview at http://localhost:4321
-npm run check    # type-check .astro and TypeScript files
+npm run check    # type-check, then check the Slovak translations
 npm run build    # production build into dist/
 npm run preview  # serve the built dist/ locally
 ```
