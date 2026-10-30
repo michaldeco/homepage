@@ -50,6 +50,20 @@ const ui: Record<Lang, typeof en> = { en, sk };
 
 export const t = (lang: Lang) => ui[lang];
 
+// Slovak names of project tags that are concepts, not tools. Project files keep the English tags
+// in both languages (the translation check compares them); other tags are shown as they are.
+const tagTranslations: Record<Exclude<Lang, 'en'>, Record<string, string>> = {
+  sk: {
+    Statistics: 'Štatistika',
+    'Linear programming': 'Lineárne programovanie',
+    'Data quality': 'Kvalita dát',
+    Testing: 'Testovanie',
+    'Excel/VBA automation': 'Automatizácia Excel/VBA',
+  },
+};
+
+export const translateTag = (lang: Lang, tag: string) => (lang === 'en' ? tag : (tagTranslations[lang][tag] ?? tag));
+
 // Picks the right language from a YAML value that is either one text or `{ en, sk }`.
 export const pick = (lang: Lang, value: string | Record<Lang, string>) =>
   typeof value === 'string' ? value : value[lang];

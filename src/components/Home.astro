@@ -2,7 +2,7 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import LangSwitch from './LangSwitch.astro';
-import { pick, t, type Lang } from '../i18n/ui';
+import { pick, t, translateTag, type Lang } from '../i18n/ui';
 import { fixSlovakSpacing } from '../i18n/typography.mjs';
 
 interface Props {
@@ -76,7 +76,7 @@ const renderedProjects = await Promise.all(
             )}
             {tags.length > 0 && (
               <ul class="pills pills-small">
-                {tags.map((tag) => <li>{tag}</li>)}
+                {tags.map((tag) => <li>{translateTag(lang, tag)}</li>)}
               </ul>
             )}
           </li>

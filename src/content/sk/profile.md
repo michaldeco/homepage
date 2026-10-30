@@ -14,9 +14,9 @@ links:
 contactNote: Máte projekt? Pošlite mi krátky popis a ozvem sa vám.
 ---
 
-Som softvérový inžinier s doktorátom z matematiky a viac ako desiatimi rokmi praxe. Začínal som automatizáciou testov webovej aplikácie pre lekárov vo firme vyrábajúcej zdravotnícke prístroje. Potom som prešiel k dátam: najprv vstupy pre predpovede u dodávateľa elektriny, potom dátové *pipeline* a dátový sklad v GoHealth.
+Som softvérový inžinier s doktorátom z matematiky a viac ako desiatimi rokmi praxe. Začínal som v GlobalLogic automatizáciou testov webovej aplikácie pre lekárov, ktorú sme vyvíjali pre výrobcu zdravotníckych prístrojov. Potom som prešiel k dátam: najprv vstupy pre predpovede u dodávateľa elektriny, potom dátové *pipeline* a dátový sklad v GoHealth.
 
-V U. S. Steel Košice som viac ako štyri roky pracoval na súbore nástrojov, ktorý spája strojové učenie s lineárnym programovaním a pre každú tavbu ocele vyberá skladbu šrotu. Naposledy som na diaľku ako externý spolupracovník amerického startupu v oblasti náboru pracoval na hodnotení kandidátov, *entity resolution* a dátovej platforme, na ktorej to celé stojí.
+V U. S. Steel Košice som viac ako štyri roky pracoval na súbore nástrojov, ktorý spája strojové učenie s lineárnym programovaním a pre každú tavbu ocele vyberá skladbu šrotu. Naposledy som na diaľku ako externý spolupracovník amerického startupu v oblasti náboru pracoval na skórovaní kandidátov, *entity resolution* a dátovej platforme, na ktorej to celé stojí.
 
 **Ako pracujem**
 
@@ -24,6 +24,5 @@ V U. S. Steel Košice som viac ako štyri roky pracoval na súbore nástrojov, k
 - Uprednostňujem osvedčené nástroje pred interne vyvinutými *frameworkmi* a prehľadnú architektúru pred „chytrým“ kódom.
 - Testy píšem priebežne, vrátane testov používateľského rozhrania. Vďaka nim je spoľahlivý aj vývoj s pomocou AI: pracujem s Claude Code, z testov sám vidí, čo sa pokazilo, a ja dbám na to, aby som návrhu riešenia rozumel.
 - Dokumentujem, čo vytvorím, a otvorene hovorím o výhodách a nevýhodách jednotlivých riešení.
-- S manažérmi a kolegami z USA som spolupracoval v GoHealth a na diaľku ako externý spolupracovník amerického startupu.
 
-Teraz začínam pracovať na voľnej nohe a hľadám projekty, v ktorých sa dáta a kód stretávajú so skutočnou obchodnou otázkou: modely strojového učenia, predpovede a analýzy, optimalizácia a tiež dátové *pipeline* a nástroje okolo nich. Pracujem na diaľku s občasnými osobnými stretnutiami, na čiastočný aj plný úväzok, na krátkych projektoch aj pri dlhšej spolupráci, kde sú stále nové problémy na riešenie.
+Teraz začínam pracovať na voľnej nohe a hľadám projekty, v ktorých sa dáta a kód stretávajú so skutočnou obchodnou otázkou: modely strojového učenia, predpovede a analýzy, optimalizácia a tiež dátové *pipeline* a nástroje okolo nich. S manažérmi a kolegami z USA som spolupracoval v GoHealth a na diaľku ako externý spolupracovník amerického startupu. Pracujem na diaľku s občasnými osobnými stretnutiami, na čiastočný aj plný úväzok, na krátkych projektoch aj pri dlhšej spolupráci, kde sú stále nové problémy na riešenie.
