@@ -13,6 +13,8 @@ const { lang } = Astro.props;
 const ui = t(lang);
 // Slovak typography for texts that don't go through Markdown (frontmatter, YAML).
 const typo = (text: string) => (lang === 'sk' ? fixSlovakSpacing(text) : text);
+// A YAML value in this page's language, with Slovak typography applied.
+const local = (value: Parameters<typeof pick>[1]) => typo(pick(lang, value));
 
 const profile = await getEntry('profile', `${lang}/profile`);
 if (!profile) throw new Error(`Missing src/content/${lang}/profile.md`);
@@ -33,7 +35,7 @@ const renderedProjects = await Promise.all(
 ---
 
 <Base title={`${p.name} — ${p.title}`} description={p.description} lang={lang}>
-  <nav class="sections" aria-label="Sections">
+  <nav class="sections" aria-label={ui['nav.label']}>
     <a href="#about">{ui['nav.about']}</a>
     <a href="#work">{ui['nav.work']}</a>
     <a href="#skills">{ui['nav.skills']}</a>
@@ -46,8 +48,8 @@ const renderedProjects = await Promise.all(
     {/* Optional photo: add public/photo.jpg and uncomment */}
     {/* <img class="avatar" src="/photo.jpg" alt={p.name} width="96" height="96" /> */}
     <h1>{p.name}</h1>
-    <p class="tagline">{p.title}</p>
-    <p class="meta">{p.location} · {p.timezone}<span class="sep"> · </span><span class="status">{p.availability}</span></p>
+    <p class="tagline">{typo(p.title)}</p>
+    <p class="meta">{typo(p.location)} · {p.timezone}<span class="sep"> · </span><span class="status">{typo(p.availability)}</span></p>
     <nav class="links">
       <a href={`mailto:${p.email}`}>{ui['link.email']}</a>
       {p.links.map((link) => <a href={link.url} rel="me">{link.label}</a>)}
@@ -76,7 +78,7 @@ const renderedProjects = await Promise.all(
             )}
             {tags.length > 0 && (
               <ul class="pills pills-small">
-                {tags.map((tag) => <li>{translateTag(lang, tag)}</li>)}
+                {tags.map((tag) => <li>{typo(translateTag(lang, tag))}</li>)}
               </ul>
             )}
           </li>
@@ -91,10 +93,10 @@ const renderedProjects = await Promise.all(
       {
         skills.map((group) => (
           <>
-            <dt>{pick(lang, group.data.label)}</dt>
+            <dt>{local(group.data.label)}</dt>
             <dd>
               <ul class="pills">
-                {group.data.items.map((item) => <li>{pick(lang, item)}</li>)}
+                {group.data.items.map((item) => <li>{local(item)}</li>)}
               </ul>
             </dd>
           </>
@@ -111,8 +113,8 @@ const renderedProjects = await Promise.all(
           <li>
             {data.logo && <img class="logo" src={`/logos/${data.logo}`} alt="" width="44" height="44" />}
             <div>
-              <h3>{typo(pick(lang, data.company))}</h3>
-              <p class="role">{pick(lang, data.role)} · {data.period}</p>
+              <h3>{local(data.company)}</h3>
+              <p class="role">{local(data.role)} · {data.period}</p>
             </div>
           </li>
         ))

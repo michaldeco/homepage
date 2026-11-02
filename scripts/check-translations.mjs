@@ -2,7 +2,8 @@
 //
 // Errors (exit code 1):
 //   - an English file without its Slovak counterpart, or the other way round;
-//   - a project whose language-independent fields (order, period, tags) differ between the languages.
+//   - a language-independent field that differs between the languages: order, period and tags of a
+//     project, name, email and timezone of the profile. (The profile's `links` list is not compared.)
 // Warnings (exit code 0):
 //   - an English file committed after its Slovak counterpart, with the git command that shows what changed.
 //
@@ -15,7 +16,7 @@ const root = join(import.meta.dirname, '..');
 const enDir = join(root, 'src/content/en');
 const skDir = join(root, 'src/content/sk');
 const inActions = Boolean(process.env.GITHUB_ACTIONS);
-const sharedFields = ['order', 'period', 'tags'];
+const sharedFields = ['order', 'period', 'tags', 'name', 'email', 'timezone'];
 
 let errors = 0;
 const report = (level, file, message) => {

@@ -5,6 +5,7 @@ export type Lang = (typeof languages)[number];
 export const defaultLang: Lang = 'en';
 
 const en = {
+  'nav.label': 'Sections',
   'nav.about': 'About',
   'nav.work': 'Work',
   'nav.skills': 'Skills',
@@ -23,9 +24,11 @@ const en = {
   'notFound.back': 'Back to the homepage',
   'switch.label': 'SK',
   'switch.title': 'Slovenská verzia',
+  'switch.navLabel': 'Language',
 };
 
 const sk: Record<keyof typeof en, string> = {
+  'nav.label': 'Sekcie stránky',
   'nav.about': 'O mne',
   'nav.work': 'Projekty',
   'nav.skills': 'Zručnosti',
@@ -44,6 +47,7 @@ const sk: Record<keyof typeof en, string> = {
   'notFound.back': 'Späť na úvodnú stránku',
   'switch.label': 'EN',
   'switch.title': 'English version',
+  'switch.navLabel': 'Jazyk',
 };
 
 const ui: Record<Lang, typeof en> = { en, sk };

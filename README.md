@@ -28,13 +28,17 @@ counterpart with the same name in `src/content/sk/`, and the YAML files hold bot
   the English term in *italics* (*pipeline*, *entity resolution*). Tool names stay plain.
 - **Typography:** single-letter words (v, k, s, z, a, o, u, i) are joined to the next word automatically
   (`src/i18n/typography.mjs`), so just type normal spaces.
-- **Keeping in sync:** `npm run check` fails if a translation is missing, or if `order`, `period` or `tags`
-  differ between the languages. It warns when an English file was committed after its Slovak version
+- **Keeping in sync:** `npm run check` fails if a translation is missing, or if `order`, `period`, `tags`,
+  `name`, `email` or `timezone` differ between the languages (the profile's `links` are not compared,
+  so change them in both files). It warns when an English file was committed after its Slovak version
   and prints a `git diff` command that shows what changed since the last translation.
 
 ## Development
 
 Requires Node.js 22.12 or newer (`.node-version` pins the major version for Cloudflare builds).
+
+`@astrojs/markdown-satteri` is pinned to the version Astro itself uses (for the Slovak spacing plugin).
+When upgrading Astro, set it to the version in `node_modules/astro/package.json`, so only one copy is installed.
 
 ```sh
 npm install      # once, and after pulling dependency changes
