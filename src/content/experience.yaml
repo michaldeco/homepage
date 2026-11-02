@@ -1,44 +1,45 @@
 # Employment history, sorted by `order` (1 = most recent). `id` must be unique.
 # Put logo files (SVG preferred) in public/logos/ and reference them by file name.
 # Leave `logo` out to show the name only.
+# `role` has an English and a Slovak version; `company` can be one name or both versions.
 - id: lambda-league
   logo: lambda-league.svg
   order: 1
   company: Lambda League
-  role: Software Engineer
+  role: { en: Software Engineer, sk: Softvérový inžinier }
   period: 2025–2026
 
 - id: us-steel
   logo: uss.svg
   order: 2
   company: U. S. Steel Košice
-  role: Data Scientist
+  role: { en: Data Scientist, sk: Dátový vedec }
   period: 2021–2025
 
 - id: gohealth
   logo: gohealth.svg
   order: 3
   company: GoHealth
-  role: Data Engineer
+  role: { en: Data Engineer, sk: Dátový inžinier }
   period: 2019–2021
 
 - id: vse
   logo: vse.svg
   order: 4
-  company: VSE (innogy group)
-  role: Data Specialist
+  company: { en: VSE (innogy group), sk: VSE (skupina innogy) }
+  role: { en: Data Specialist, sk: Dátový špecialista }
   period: 2017–2019
 
 - id: globallogic
   logo: globallogic.svg
   order: 5
   company: GlobalLogic Slovakia
-  role: Test Engineer
+  role: { en: Test Engineer, sk: Testovací inžinier }
   period: 2015–2017
 
 - id: upjs
   logo: upjs.png
   order: 6
-  company: Pavol Jozef Šafárik University in Košice
-  role: PhD Researcher in Mathematics
+  company: { en: Pavol Jozef Šafárik University in Košice, sk: Univerzita Pavla Jozefa Šafárika v Košiciach }
+  role: { en: PhD Researcher in Mathematics, sk: Doktorand v odbore matematika }
   period: 2011–2015

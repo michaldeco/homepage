@@ -1,40 +1,49 @@
 # Skill groups, sorted by `order`. `id` must be unique.
+# `label` has an English and a Slovak version. An item is one name for both languages (tools),
+# or `{ en, sk }` when it needs translating (methods).
 - id: languages
   order: 1
-  label: Languages
+  label: { en: Languages, sk: Jazyky }
   items: [Python, SQL]
 
 - id: ml
   order: 2
-  label: Machine learning
+  label: { en: Machine learning, sk: Strojové učenie }
   items: [PyTorch, LightGBM, scikit-learn, Darts, OpenAI API]
 
 - id: analysis
   order: 3
-  label: Data analysis
+  label: { en: Data analysis, sk: Analýza dát }
   items: [pandas, SciPy, statsmodels, Plotly]
 
 - id: data
   order: 4
-  label: Data engineering
+  label: { en: Data engineering, sk: Dátové inžinierstvo }
   items: [Dagster, Airflow, SQLAlchemy, Alembic]
 
 - id: databases
   order: 5
-  label: Databases
+  label: { en: Databases, sk: Databázy }
   items: [PostgreSQL, pgvector, SQL Server, Oracle, Redis]
 
 - id: web
   order: 6
-  label: Web
+  label: { en: Web, sk: Web }
   items: [Django, FastAPI, Flask]
 
 - id: cloud
   order: 7
-  label: Cloud & tools
+  label: { en: Cloud & tools, sk: Cloud a nástroje }
   items: [AWS, Terraform, Docker, Git]
 
 - id: methods
   order: 8
-  label: Methods
-  items: [Statistics, Probability, Optimization, Linear programming, Time series forecasting, Data warehousing, Entity resolution]
+  label: { en: Methods, sk: Metódy }
+  items:
+    - { en: Statistics, sk: Štatistika }
+    - { en: Probability, sk: Pravdepodobnosť }
+    - { en: Optimization, sk: Optimalizácia }
+    - { en: Linear programming, sk: Lineárne programovanie }
+    - { en: Time series forecasting, sk: Predpovedanie časových radov }
+    - { en: Data warehousing, sk: Dátové sklady }
+    - Entity resolution

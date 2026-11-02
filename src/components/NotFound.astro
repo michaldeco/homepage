@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import { homePath, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const ui = t(lang);
+---
+
+<Base title={ui['notFound.title']} description={ui['notFound.text']} lang={lang} noindex>
+  <nav class="sections" aria-label={ui['switch.navLabel']}>
+    <LangSwitch lang={lang} />
+  </nav>
+
+  <header class="intro">
+    <h1>{ui['notFound.title']}</h1>
+    <p class="tagline">{ui['notFound.text']}</p>
+    <p><a href={homePath(lang)}>{ui['notFound.back']}</a></p>
+  </header>
+</Base>

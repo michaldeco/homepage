@@ -1,21 +1,24 @@
 ---
 import { getEntry } from 'astro:content';
+import { homePath, languages, type Lang } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
+  lang: Lang;
   noindex?: boolean;
 }
 
-const { title, description, noindex = false } = Astro.props;
-const profile = await getEntry('profile', 'profile');
+const { title, description, lang, noindex = false } = Astro.props;
+const profile = await getEntry('profile', `${lang}/profile`);
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/og-image.png', Astro.site);
+const ogImage = new URL(lang === 'en' ? '/og-image.png' : `/og-image-${lang}.png`, Astro.site);
+const ogLocales: Record<Lang, string> = { en: 'en_US', sk: 'sk_SK' };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,9 +26,16 @@ const ogImage = new URL('/og-image.png', Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
+    {
+      !noindex &&
+        languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(homePath(l), Astro.site)} />)
+    }
+    {!noindex && <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocales[lang]} />
+    {languages.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={ogLocales[l]} />)}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
