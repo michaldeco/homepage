@@ -1,5 +1,6 @@
 ---
 title: Automatizácia denného procesu v Exceli a VBA pomocou Pythonu
+slug: excel-automation
 summary: Denný dátový proces v Exceli a VBA som krok za krokom a bez jeho prerušenia previedol na plne automatizovaný Python. Na záver som napísal otestovaného klienta v Pythone pre REST API softvéru na predpovede.
 company: VSE (skupina innogy)
 role: Dátový špecialista

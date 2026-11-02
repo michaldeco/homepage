@@ -1,5 +1,6 @@
 ---
 title: Airflow pipelines and shared tooling for a data warehouse
+slug: data-warehouse
 summary: Built Airflow pipelines that fed a layered SQL Server data warehouse, including automated report downloads from insurance carriers' partner portals that had no API, and wrote shared helpers my teammates adopted.
 company: GoHealth
 role: Data Engineer

@@ -8,7 +8,7 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 | What | Where |
 |---|---|
 | Name, title, contact links, bio | `src/content/en/profile.md` (Slovak: `src/content/sk/profile.md`) |
-| Projects (one file each, sorted by `order`; `company` optional for side projects) | `src/content/en/projects/*.md` (Slovak: same file names in `src/content/sk/projects/`) |
+| Projects (one file each, sorted by `order`; `company` optional for side projects). The summary is shown on the homepage, the story (Markdown body) on the project's own page at `/work/<slug>`; `slug` is the same in both languages | `src/content/en/projects/*.md` (Slovak: same file names in `src/content/sk/projects/`) |
 | Skills (shown as pills; group labels in both languages) | `src/content/skills.yaml` |
 | Employment history (with optional logos) | `src/content/experience.yaml` + logo files in `public/logos/` |
 | Profile photo (optional) | `public/photo.jpg`, then uncomment the `<img>` in `src/components/Home.astro` |
@@ -16,6 +16,7 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 | Fixed texts (navigation, headings, "know more" link, 404 page) | `src/i18n/ui.ts` |
 
 Layout and styles: `src/layouts/Base.astro`, `src/components/Home.astro`, `src/styles/global.css`.
+Project pages: `src/components/ProjectPage.astro` (routes in `src/pages/work/` and `src/pages/sk/work/`).
 Not-found page: `src/components/NotFound.astro`. Response headers on Cloudflare: `public/_headers`.
 
 ## Slovak version
@@ -28,7 +29,7 @@ counterpart with the same name in `src/content/sk/`, and the YAML files hold bot
   the English term in *italics* (*pipeline*, *entity resolution*). Tool names stay plain.
 - **Typography:** single-letter words (v, k, s, z, a, o, u, i) are joined to the next word automatically
   (`src/i18n/typography.mjs`), so just type normal spaces.
-- **Keeping in sync:** `npm run check` fails if a translation is missing, or if `order`, `period`, `tags`,
+- **Keeping in sync:** `npm run check` fails if a translation is missing, or if `slug`, `order`, `period`, `tags`,
   `name`, `email` or `timezone` differ between the languages (the profile's `links` are not compared,
   so change them in both files). It warns when an English file was committed after its Slovak version
   and prints a `git diff` command that shows what changed since the last translation.

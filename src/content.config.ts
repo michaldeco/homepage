@@ -26,10 +26,18 @@ const profile = defineCollection({
 // Entry ids start with the language, e.g. `en/projects/vse-energy-data`.
 // `company` is optional, e.g. for side projects or open source.
 const projects = defineCollection({
-  loader: glob({ pattern: '*/projects/*.md', base: './src/content' }),
+  loader: glob({
+    pattern: '*/projects/*.md',
+    base: './src/content',
+    // Ids from the file path, as usual. (By default a `slug` field would become the id, so the
+    // English and Slovak files of one project would collide.)
+    generateId: ({ entry }) => entry.replace(/\.md$/, ''),
+  }),
   schema: z.object({
     title: z.string(),
-    // Always visible; the Markdown body (optional) is shown behind a "know more" toggle.
+    // The project page's address: /work/<slug> (Slovak: /sk/work/<slug>). Same in both languages.
+    slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'lowercase words joined by hyphens, e.g. scrap-optimization'),
+    // Shown on the homepage; the Markdown body (optional) becomes the project's own page.
     summary: z.string(),
     company: z.string().optional(),
     role: z.string(),

@@ -20,3 +20,7 @@ export const slovakSpacing = ({ fileURL }) =>
       if (fixed !== node.value) ctx.setProperty(node, 'value', fixed);
     },
   };
+
+// For texts that don't go through Markdown (frontmatter, YAML): Slovak spacing on Slovak pages only.
+/** @param {string} lang @returns {(text: string) => string} */
+export const typographyFor = (lang) => (lang === 'sk' ? fixSlovakSpacing : (text) => text);

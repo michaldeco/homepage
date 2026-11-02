@@ -1,0 +1,50 @@
+---
+// A project's own page: its story, with a way back to the list on the homepage.
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import { homePath, pathsFor, projectPath, t, translateTag, type Lang } from '../i18n/ui';
+import { typographyFor } from '../i18n/typography.mjs';
+import { roleLine, type Project } from '../lib/projects';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+
+const { lang, project } = Astro.props;
+const ui = t(lang);
+const typo = typographyFor(lang);
+
+const profile = await getEntry('profile', `${lang}/profile`);
+const { Content } = await render(project);
+const { title, summary, slug, period, tags } = project.data;
+const paths = pathsFor((l) => projectPath(l, slug));
+const back = `${homePath(lang)}#work`;
+---
+
+<Base title={`${title} — ${profile?.data.name}`} description={summary} lang={lang} paths={paths}>
+  <nav class="sections" aria-label={ui['project.navLabel']}>
+    <div class="section-links">
+      <a href={back}><span aria-hidden="true">← </span>{ui['project.back']}</a>
+    </div>
+    <LangSwitch lang={lang} paths={paths} />
+  </nav>
+
+  <article class="story">
+    <header>
+      <h1>{typo(title)}</h1>
+      <p class="role">{typo(roleLine(lang, project.data))} · {period}</p>
+    </header>
+    <Content />
+    {
+      tags.length > 0 && (
+        <ul class="pills pills-small">
+          {tags.map((tag) => <li>{typo(translateTag(lang, tag))}</li>)}
+        </ul>
+      )
+    }
+  </article>
+
+  <p class="back-link"><a href={back}><span aria-hidden="true">← </span>{ui['project.back']}</a></p>
+</Base>

@@ -1,5 +1,6 @@
 ---
 title: Entity resolution for companies and schools
+slug: entity-resolution
 summary: Replaced name-based IDs, which caused duplicate and wrongly merged companies and schools, with entity resolution based on stable source identifiers and matching heuristics, plus a review screen where a person decides the uncertain cases.
 company: Lambda League
 role: Software Engineer

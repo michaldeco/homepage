@@ -1,5 +1,6 @@
 ---
 title: Data platform and apps for a recruiting startup
+slug: data-platform
 summary: Together with the founder of a two-person startup, built its data platform and apps. Dagster fed a medium-sized Postgres database of over a hundred tables, and the APIs and web apps ran on AWS, managed in Terraform. The founder used the tools daily, and they significantly increased the number of candidates he could contact per day.
 company: Lambda League
 role: Software Engineer

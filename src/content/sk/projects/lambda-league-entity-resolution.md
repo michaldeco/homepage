@@ -1,5 +1,6 @@
 ---
 title: Deduplikácia firiem a škôl (entity resolution)
+slug: entity-resolution
 summary: Identifikátory odvodené z názvov, kvôli ktorým vznikali duplicitné aj chybne zlúčené firmy a školy, som nahradil procesom entity resolution. Stavia na stabilných identifikátoroch zo zdrojových dát a heuristikách párovania, a o neistých prípadoch rozhoduje človek na kontrolnej obrazovke.
 company: Lambda League
 role: Softvérový inžinier

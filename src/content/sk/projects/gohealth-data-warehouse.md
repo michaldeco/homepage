@@ -1,5 +1,6 @@
 ---
 title: Airflow pipeline a spoločné nástroje pre dátový sklad
+slug: data-warehouse
 summary: Vytváral som pipeline v Airflow, ktoré plnili viacvrstvový dátový sklad v SQL Serveri, vrátane automatického sťahovania reportov z partnerských portálov poisťovní, ktoré nemali API. Napísal som aj spoločné pomocné funkcie, ktoré prevzali kolegovia z tímu.
 company: GoHealth
 role: Dátový inžinier

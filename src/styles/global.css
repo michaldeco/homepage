@@ -303,36 +303,29 @@ section {
   margin: 0.1rem 0 0.4rem;
 }
 
-.more {
-  margin-bottom: 0.75rem;
-}
-
-.more > summary {
-  display: inline-block;
-  color: var(--accent);
-  cursor: pointer;
+.more-link {
   font-size: 0.95rem;
-  list-style: none;
+  margin: 0 0 0.75rem;
 }
 
-.more > summary::-webkit-details-marker {
-  display: none;
+/* A project's own page */
+.story h1 {
+  font-size: 1.6rem;
 }
 
-.more > summary::before {
-  content: "▸ ";
+.story .role {
+  margin-bottom: 1.5rem;
 }
 
-.more[open] > summary::before {
-  content: "▾ ";
+.story .pills {
+  margin-top: 1.5rem;
 }
 
-.more > summary:hover {
-  text-decoration: underline;
-}
-
-.more[open] > summary {
-  margin-bottom: 0.5rem;
+.back-link {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
 }
 
 /* Experience */
@@ -390,7 +383,7 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Print: light colors, no navigation or toggles, stories expanded (see Base.astro) */
+/* Print: light colors, no navigation or links that only lead elsewhere on the site */
 @media print {
   :root {
     --bg: #fff;
@@ -404,7 +397,8 @@ footer {
   }
 
   .sections,
-  .more > summary {
+  .more-link,
+  .back-link {
     display: none;
   }
 
