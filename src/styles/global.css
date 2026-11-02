@@ -101,11 +101,32 @@ section {
 }
 
 /* Section navigation */
+/* Stays at the top of the window while scrolling (sticky within <main>). */
 .sections {
+  position: sticky;
+  /* Starts 4px above the window edge, so content never peeks through the gap that
+     pixel rounding leaves at fractional scroll positions (trackpads, smooth scrolling). */
+  top: -4px;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-block: calc(0.75rem + 4px) 0.75rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Jump links stop below the sticky nav, not under it. */
+section {
+  scroll-margin-top: 3rem;
+}
+
+.section-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
-  margin-bottom: 3rem;
+  min-width: 0;
 }
 
 .sections a {
@@ -116,13 +137,41 @@ section {
   color: var(--accent);
 }
 
-.sections .lang-switch {
+/* Language switch: EN · SK at the right end of the bar, the current language highlighted. */
+.lang-switch {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
   margin-left: auto;
 }
 
+.lang-switch .current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.lang-switch .sep {
+  color: var(--muted);
+}
+
+/* Phones: the section links are one row that scrolls sideways (fading out at the right edge),
+   while the language switch stays put, so the sticky bar stays slim. */
 @media (max-width: 480px) {
   .sections {
+    gap: 0.9rem;
+  }
+
+  .section-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
     column-gap: 0.9rem;
+    padding-right: 1.25rem;
+    mask-image: linear-gradient(to right, #000 calc(100% - 1.25rem), transparent);
+  }
+
+  .section-links a {
+    flex-shrink: 0;
   }
 }
 

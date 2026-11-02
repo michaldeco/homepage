@@ -22,8 +22,7 @@ const en = {
   'notFound.title': 'Page not found',
   'notFound.text': "This page doesn't exist, or it has moved.",
   'notFound.back': 'Back to the homepage',
-  'switch.label': 'SK',
-  'switch.title': 'Slovenská verzia',
+  'switch.title': 'English version',
   'switch.navLabel': 'Language',
 };
 
@@ -45,8 +44,7 @@ const sk: Record<keyof typeof en, string> = {
   'notFound.title': 'Stránka sa nenašla',
   'notFound.text': 'Táto stránka neexistuje alebo bola presunutá.',
   'notFound.back': 'Späť na úvodnú stránku',
-  'switch.label': 'EN',
-  'switch.title': 'English version',
+  'switch.title': 'Slovenská verzia',
   'switch.navLabel': 'Jazyk',
 };
 
@@ -72,6 +70,5 @@ export const translateTag = (lang: Lang, tag: string) => (lang === 'en' ? tag : 
 export const pick = (lang: Lang, value: string | Record<Lang, string>) =>
   typeof value === 'string' ? value : value[lang];
 
-// Home page and other pages of each language.
+// Home page of each language.
 export const homePath = (lang: Lang) => (lang === defaultLang ? '/' : `/${lang}/`);
-export const otherLang = (lang: Lang): Lang => (lang === 'en' ? 'sk' : 'en');
