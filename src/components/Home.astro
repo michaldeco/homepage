@@ -2,8 +2,9 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import LangSwitch from './LangSwitch.astro';
-import { pick, t, translateTag, type Lang } from '../i18n/ui';
-import { fixSlovakSpacing } from '../i18n/typography.mjs';
+import { pick, projectPath, t, translateTag, type Lang } from '../i18n/ui';
+import { typographyFor } from '../i18n/typography.mjs';
+import { getProjects, hasStory, roleLine } from '../lib/projects';
 
 interface Props {
   lang: Lang;
@@ -12,7 +13,7 @@ interface Props {
 const { lang } = Astro.props;
 const ui = t(lang);
 // Slovak typography for texts that don't go through Markdown (frontmatter, YAML).
-const typo = (text: string) => (lang === 'sk' ? fixSlovakSpacing(text) : text);
+const typo = typographyFor(lang);
 // A YAML value in this page's language, with Slovak typography applied.
 const local = (value: Parameters<typeof pick>[1]) => typo(pick(lang, value));
 
@@ -24,14 +25,7 @@ const p = profile.data;
 const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) => a.data.order - b.data.order;
 const skills = (await getCollection('skills')).sort(byOrder);
 const experience = (await getCollection('experience')).sort(byOrder);
-const projects = (await getCollection('projects', ({ id }) => id.startsWith(`${lang}/`))).sort(byOrder);
-const renderedProjects = await Promise.all(
-  projects.map(async (project) => ({
-    ...project.data,
-    hasDetails: Boolean(project.body?.trim()),
-    Content: (await render(project)).Content,
-  })),
-);
+const projects = await getProjects(lang);
 ---
 
 <Base title={`${p.name} — ${p.title}`} description={p.description} lang={lang}>
@@ -67,24 +61,26 @@ const renderedProjects = await Promise.all(
     <h2>{ui['section.work']}</h2>
     <ul class="projects">
       {
-        renderedProjects.map(({ title, summary, company, role, period, tags, hasDetails, Content }) => (
-          <li>
-            <h3>{typo(title)}</h3>
-            <p class="role">{typo(company ? `${role} ${ui['project.at']} ${company}` : role)} · {period}</p>
-            <p>{typo(summary)}</p>
-            {hasDetails && (
-              <details class="more">
-                <summary>{ui['project.more']}</summary>
-                <Content />
-              </details>
-            )}
-            {tags.length > 0 && (
-              <ul class="pills pills-small">
-                {tags.map((tag) => <li>{typo(translateTag(lang, tag))}</li>)}
-              </ul>
-            )}
-          </li>
-        ))
+        projects.map((project) => {
+          const { title, summary, slug, period, tags } = project.data;
+          return (
+            <li>
+              <h3>{typo(title)}</h3>
+              <p class="role">{typo(roleLine(lang, project.data))} · {period}</p>
+              <p>{typo(summary)}</p>
+              {hasStory(project) && (
+                <p class="more-link">
+                  <a href={projectPath(lang, slug)}>{ui['project.more']}<span aria-hidden="true"> →</span></a>
+                </p>
+              )}
+              {tags.length > 0 && (
+                <ul class="pills pills-small">
+                  {tags.map((tag) => <li>{typo(translateTag(lang, tag))}</li>)}
+                </ul>
+              )}
+            </li>
+          );
+        })
       }
     </ul>
   </section>

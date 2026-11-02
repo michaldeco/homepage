@@ -1,5 +1,6 @@
 ---
 title: Výber a skórovanie kandidátov pre náborový startup
+slug: candidate-scoring
 summary: Podieľal som sa na systéme skórovania, ktorý zoraďoval kandidátov na každú otvorenú pozíciu, a natrénoval som jeho dva modely strojového učenia. Prvý určoval, ako dobre pozícia nadväzuje na doterajšiu kariéru kandidáta, druhý pravdepodobnosť, že kandidát zmení prácu. Zakladateľ startupu podľa tohto poradia každý deň vyberal, koho osloví.
 company: Lambda League
 role: Softvérový inžinier

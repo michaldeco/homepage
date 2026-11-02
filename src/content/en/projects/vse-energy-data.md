@@ -1,5 +1,6 @@
 ---
 title: Automating a daily Excel/VBA process with Python
+slug: excel-automation
 summary: Moved a daily Excel/VBA data process to fully automated Python, step by step and without stopping it, ending with a tested Python client for the forecasting software's REST API.
 company: VSE (innogy group)
 role: Data Specialist

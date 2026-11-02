@@ -19,6 +19,8 @@ const en = {
   'section.contact': 'Contact',
   'project.at': 'at',
   'project.more': 'Would you like to know more?',
+  'project.back': 'All projects',
+  'project.navLabel': 'Navigation',
   'notFound.title': 'Page not found',
   'notFound.text': "This page doesn't exist, or it has moved.",
   'notFound.back': 'Back to the homepage',
@@ -41,6 +43,8 @@ const sk: Record<keyof typeof en, string> = {
   'section.contact': 'Kontakt',
   'project.at': 'v',
   'project.more': 'Chcete vedieť viac?',
+  'project.back': 'Všetky projekty',
+  'project.navLabel': 'Navigácia',
   'notFound.title': 'Stránka sa nenašla',
   'notFound.text': 'Táto stránka neexistuje alebo bola presunutá.',
   'notFound.back': 'Späť na úvodnú stránku',
@@ -72,3 +76,11 @@ export const pick = (lang: Lang, value: string | Record<Lang, string>) =>
 
 // Home page of each language.
 export const homePath = (lang: Lang) => (lang === defaultLang ? '/' : `/${lang}/`);
+
+// A project's own page: /work/<slug>, or /sk/work/<slug>.
+export const projectPath = (lang: Lang, slug: string) => `${homePath(lang)}work/${slug}`;
+
+// The same page in every language, e.g. for hreflang links and the language switch.
+export type PagePaths = Record<Lang, string>;
+export const pathsFor = (path: (lang: Lang) => string): PagePaths =>
+  Object.fromEntries(languages.map((lang) => [lang, path(lang)])) as PagePaths;

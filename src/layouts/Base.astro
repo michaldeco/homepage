@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import { homePath, languages, type Lang } from '../i18n/ui';
+import { homePath, languages, pathsFor, type Lang, type PagePaths } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
@@ -8,11 +8,13 @@ interface Props {
   description: string;
   lang: Lang;
   noindex?: boolean;
+  // This page in every language, for the canonical and hreflang links. Defaults to the home pages.
+  paths?: PagePaths;
 }
 
-const { title, description, lang, noindex = false } = Astro.props;
+const { title, description, lang, noindex = false, paths = pathsFor(homePath) } = Astro.props;
 const profile = await getEntry('profile', `${lang}/profile`);
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const canonical = new URL(noindex ? Astro.url.pathname : paths[lang], Astro.site);
 const ogImage = new URL(lang === 'en' ? '/og-image.png' : `/og-image-${lang}.png`, Astro.site);
 const ogLocales: Record<Lang, string> = { en: 'en_US', sk: 'sk_SK' };
 ---
@@ -28,9 +30,9 @@ const ogLocales: Record<Lang, string> = { en: 'en_US', sk: 'sk_SK' };
     {noindex && <meta name="robots" content="noindex" />}
     {
       !noindex &&
-        languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(homePath(l), Astro.site)} />)
+        languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(paths[l], Astro.site)} />)
     }
-    {!noindex && <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={new URL(paths.en, Astro.site)} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -45,22 +47,6 @@ const ogLocales: Record<Lang, string> = { en: 'en_US', sk: 'sk_SK' };
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
-    <!-- Expand the project stories when printing or saving as PDF; collapse them again afterwards. -->
-    <script is:inline>
-      addEventListener('beforeprint', () => {
-        for (const d of document.querySelectorAll('details:not([open])')) {
-          d.open = true;
-          d.dataset.printOpened = '';
-        }
-      });
-      addEventListener('afterprint', () => {
-        for (const d of document.querySelectorAll('details[data-print-opened]')) {
-          d.open = false;
-          delete d.dataset.printOpened;
-        }
-      });
-    </script>
   </head>
   <body>
     <main>

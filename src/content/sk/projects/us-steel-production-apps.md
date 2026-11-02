@@ -1,5 +1,6 @@
 ---
 title: Optimalizácia šrotu pri výrobe ocele
+slug: scrap-optimization
 summary: Ako člen malého tímu som vytvoril súbor nástrojov, ktorý pre každú tavbu ocele odporúča skladbu šrotu. Spája modely strojového učenia, optimalizáciu lineárnym programovaním a webové aplikácie pre operátorov, technológov a nákup. Jeho odporúčania sa niekoľko rokov používali pri každej tavbe v bežnej výrobe.
 company: U. S. Steel Košice
 role: Dátový vedec
