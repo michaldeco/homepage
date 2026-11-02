@@ -1,13 +1,26 @@
 ---
-import { homePath, otherLang, t, type Lang } from '../i18n/ui';
+// Language switch: both codes in a fixed order (EN · SK), the current one highlighted,
+// the other one a link to that language's home page.
+import { homePath, languages, t, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
 }
 
 const { lang } = Astro.props;
-const target = otherLang(lang);
-const ui = t(lang);
 ---
 
-<a class="lang-switch" href={homePath(target)} hreflang={target} lang={target} title={ui['switch.title']}>{ui['switch.label']}</a>
+<span class="lang-switch">
+  {
+    languages.map((code, i) => (
+      <>
+        {i > 0 && <span class="sep" aria-hidden="true">·</span>}
+        {code === lang ? (
+          <span class="current" lang={code} aria-current="true">{code.toUpperCase()}</span>
+        ) : (
+          <a href={homePath(code)} hreflang={code} lang={code} title={t(code)['switch.title']}>{code.toUpperCase()}</a>
+        )}
+      </>
+    ))
+  }
+</span>

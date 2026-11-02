@@ -36,11 +36,13 @@ const renderedProjects = await Promise.all(
 
 <Base title={`${p.name} — ${p.title}`} description={p.description} lang={lang}>
   <nav class="sections" aria-label={ui['nav.label']}>
-    <a href="#about">{ui['nav.about']}</a>
-    <a href="#work">{ui['nav.work']}</a>
-    <a href="#skills">{ui['nav.skills']}</a>
-    <a href="#experience">{ui['nav.experience']}</a>
-    <a href="#contact">{ui['nav.contact']}</a>
+    <div class="section-links">
+      <a href="#about">{ui['nav.about']}</a>
+      <a href="#work">{ui['nav.work']}</a>
+      <a href="#skills">{ui['nav.skills']}</a>
+      <a href="#experience">{ui['nav.experience']}</a>
+      <a href="#contact">{ui['nav.contact']}</a>
+    </div>
     <LangSwitch lang={lang} />
   </nav>
 
