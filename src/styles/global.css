@@ -101,11 +101,25 @@ section {
 }
 
 /* Section navigation */
+/* Stays at the top of the window while scrolling (sticky within <main>). */
 .sections {
+  position: sticky;
+  /* Starts 4px above the window edge, so content never peeks through the gap that
+     pixel rounding leaves at fractional scroll positions (trackpads, smooth scrolling). */
+  top: -4px;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 1.25rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  padding-block: calc(0.75rem + 4px) 0.75rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Jump links stop below the sticky nav, not under it. */
+section {
+  scroll-margin-top: 3rem;
 }
 
 .sections a {
@@ -120,9 +134,17 @@ section {
   margin-left: auto;
 }
 
+/* Phones: one row that scrolls sideways, so the sticky bar stays slim. */
 @media (max-width: 480px) {
   .sections {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
     column-gap: 0.9rem;
+  }
+
+  .sections a {
+    flex-shrink: 0;
   }
 }
 
