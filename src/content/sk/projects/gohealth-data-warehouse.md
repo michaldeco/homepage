@@ -13,7 +13,7 @@ GoHealth je americká online platforma na predaj zdravotného poistenia. Pridal 
 
 Najväčšia *pipeline* automatizovala pravidelné sťahovanie reportov z portálov poisťovní, ktoré neponúkali API, a každý súbor nahrala do dátového skladu. Tím spolu pokrýval desiatky súborov a ja som mal na starosti päť až desať portálov. Dáta, ktoré by inak niekto musel sťahovať ručne, prichádzali automaticky.
 
-Sklad, prevažne v SQL Serveri a čiastočne v AWS S3, bol rozdelený do vrstiev: surové kópie zdrojových dát, medzistupne na čistenie a normalizáciu, horná vrstva pre koncových používateľov a tabuľky s historickými dátami.  Dátové *pipeline*, ktorých som pracoval ja zvyčajne plnili prvé stupne.
+Sklad, prevažne v SQL Serveri a čiastočne v AWS S3, bol rozdelený do vrstiev: surové kópie zdrojových dát, medzistupne na čistenie a normalizáciu, horná vrstva pre koncových používateľov a tabuľky s historickými dátami. Dátové *pipeline*, na ktorých som pracoval, zvyčajne plnili prvé stupne.
 
 Hľadal som aj problémy, ktoré tím opakovane riešil *ad hoc*, napríklad čistenie názvov stĺpcov z excelových súborov alebo prácu s dočasnými súbormi medzi krokmi *pipeline*, a premenil som ich na malé spoločné pomocné funkcie, ktoré kolegovia prevzali. Odvtedy sa riadim pravidlom: keď sa rovnaký kód objaví na dvoch či troch miestach, stane sa z neho spoločná funkcia, ale nie skôr. Mimo vlastného tímu som novovzniknutému tímu Advanced Analytics nastavil CI/CD *pipeline* v Jenkinse podľa vzoru tej našej.
 

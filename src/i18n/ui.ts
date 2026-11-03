@@ -62,7 +62,6 @@ const tagTranslations: Record<Exclude<Lang, 'en'>, Record<string, string>> = {
   sk: {
     Statistics: 'Štatistika',
     'Linear programming': 'Lineárne programovanie',
-    'Data quality': 'Kvalita dát',
     Testing: 'Testovanie',
     'Excel/VBA automation': 'Automatizácia Excel/VBA',
   },
