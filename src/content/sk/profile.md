@@ -20,7 +20,7 @@ V U. S. Steel Košice som viac ako štyri roky pracoval na súbore nástrojov, k
 
 **Ako pracujem**
 
-- Na začiatku sa dohodneme na meradlách úspechu, ktoré prepoja obchodný cieľ s niečím, čo vieme merať a zlepšovať, napríklad s presnosťou modelu.
+- Pred začiatkom práce sa dohodneme, čo znamená „hotovo“: buď konkrétna špecifikácia, napríklad nový API *endpoint* a jeho očakávané odpovede, alebo merateľný cieľ, napríklad presnosť modelu či čas spracovania na dohodnutých testovacích dátach.
 - Uprednostňujem osvedčené nástroje pred interne vyvinutými *frameworkmi* a prehľadnú architektúru pred „chytrým“ kódom.
 - Pri práci používam AI nástroje, od návrhu riešenia až po jeho implementáciu. Samozrejme, vždy dbám na to, aby som riešeniu rozumel.
 - Testy píšem priebežne, vrátane testov používateľského rozhrania. Vďaka nim je spoľahlivejší aj vývoj s pomocou AI, keďže z výsledkov testov AI agent sám vidí, čo sa pokazilo.
