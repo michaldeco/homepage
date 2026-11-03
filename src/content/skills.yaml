@@ -34,7 +34,7 @@
 - id: cloud
   order: 7
   label: { en: Cloud & tools, sk: Cloud a nástroje }
-  items: [AWS, Terraform, Docker, Git]
+  items: [AWS, Terraform, Docker, Git, Claude Code]
 
 - id: methods
   order: 8

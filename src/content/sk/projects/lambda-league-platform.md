@@ -1,12 +1,12 @@
 ---
 title: Dátová platforma a aplikácie pre náborový startup
 slug: data-platform
-summary: Spolu so zakladateľom dvojčlenného startupu som vybudoval jeho dátovú platformu a aplikácie. Dagster plnil stredne veľkú databázu Postgres s viac ako sto tabuľkami a API aj webové aplikácie bežali na AWS spravovanom cez Terraform. Zakladateľ tieto nástroje používal každý deň a výrazne mu zvýšili počet kandidátov, ktorých mohol denne osloviť.
+summary: Spolu so zakladateľom dvojčlenného startupu som vybudoval jeho dátovú platformu a aplikácie. Dagster plnil stredne veľkú databázu Postgres s viac ako sto tabuľkami a API aj webové aplikácie bežali na AWS spravovanom cez Terraform. Zakladateľ tieto nástroje používal každý deň a výrazne mu zvýšili počet kandidátov, ktorých dokázal denne osloviť.
 company: Lambda League
 role: Softvérový inžinier
 period: 2025–2026
 order: 3
-tags: [Python, PostgreSQL, Dagster, FastAPI, AWS, Terraform]
+tags: [Python, PostgreSQL, Dagster, FastAPI, AWS, Terraform, Claude Code]
 ---
 
 V dvojčlennom tíme sme si väčšinu práce delili a väčšiu časť zvyčajne robil zakladateľ. Mojou prácou bol Terraform, aplikácia pre kandidátov a jednotlivé funkcie spomenuté nižšie.

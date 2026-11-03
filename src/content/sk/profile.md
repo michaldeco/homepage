@@ -22,7 +22,8 @@ V U. S. Steel Košice som viac ako štyri roky pracoval na súbore nástrojov, k
 
 - Na začiatku sa dohodneme na meradlách úspechu, ktoré prepoja obchodný cieľ s niečím, čo vieme merať a zlepšovať, napríklad s presnosťou modelu.
 - Uprednostňujem osvedčené nástroje pred interne vyvinutými *frameworkmi* a prehľadnú architektúru pred „chytrým“ kódom.
-- Testy píšem priebežne, vrátane testov používateľského rozhrania. Vďaka nim je spoľahlivý aj vývoj s pomocou AI: pracujem s Claude Code, z testov sám vidí, čo sa pokazilo, a ja dbám na to, aby som návrhu riešenia rozumel.
+- Pri práci používam AI nástroje, od návrhu riešenia až po jeho implementáciu. Samozrejme, vždy dbám na to, aby som  riešeniu rozumel. 
+- Testy píšem priebežne, vrátane testov používateľského rozhrania. Vďaka nim je spoľahlivejší aj vývoj s pomocou AI, keďže z výsledkov testov AI agent sám vidí, čo sa pokazilo.
 - Dokumentujem, čo vytvorím, a otvorene hovorím o výhodách a nevýhodách jednotlivých riešení.
 
-Teraz začínam pracovať na voľnej nohe a hľadám projekty, v ktorých sa dáta a kód stretávajú so skutočnou obchodnou otázkou: modely strojového učenia, predpovede a analýzy, optimalizácia a tiež dátové *pipeline* a nástroje okolo nich. S manažérmi a kolegami z USA som spolupracoval v GoHealth a na diaľku ako externý spolupracovník amerického startupu. Pracujem na diaľku s občasnými osobnými stretnutiami, na čiastočný aj plný úväzok, na krátkych projektoch aj pri dlhšej spolupráci, kde sú stále nové problémy na riešenie.
+Teraz začínam pracovať na voľnej nohe a hľadám projekty, kde by som mohol uplatniť svoje skúsenosti: modely strojového učenia, predpovede a analýzy, optimalizácia a tiež dátové *pipeline* a nástroje okolo nich. S prácou na diaľku mám viacročné skúsenosti, spolupracoval som s americkými kolegami v GoHealth, a neskôr som pracoval ako externý spolupracovník amerického startupu. Pracujem na diaľku s občasnými osobnými stretnutiami, na čiastočný aj plný úväzok, na krátkych projektoch aj pri dlhšej spolupráci, kde sú stále nové problémy na riešenie.
