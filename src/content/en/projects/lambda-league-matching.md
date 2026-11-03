@@ -1,17 +1,17 @@
 ---
 title: Candidate matching and scoring for a recruiting startup
 slug: candidate-scoring
-summary: Worked on the scoring that ranked candidates for each open role, and trained its two machine-learning models, one for how well a role fits a candidate's career and one for how likely they are to change jobs. The founder used the ranking daily to decide whom to contact.
+summary: Worked on the scoring that ranked candidates for each open role, and trained its two machine-learning models, one for how well a role fits a candidate's career and one for how likely they are to change jobs. Both ran in production for almost a year.
 company: Lambda League
 role: Software Engineer
 period: 2025–2026
 order: 1
-tags: [Python, LightGBM, Embeddings, pgvector, Statistics]
+tags: [Python, LightGBM, Statistics, Claude Code]
 ---
 
 Lambda League is a recruiting startup founded by my former manager from GoHealth, who had spent years sourcing candidates for technical roles. I joined as a remote contractor, and the two of us built the data platform, the apps and the scoring behind his work.
 
-The goal was to find, for a given role at a given company, the candidates who fit best and might be willing to join. Each candidate's score combined several sub-scores, from machine-learning models to the similarity between embeddings of the candidate's and the role's profiles, stored in Postgres with pgvector. The sub-scores had different scales, so a normalization layer put them on a common one. In Portal, the startup's app for scoring candidates and selecting whom to contact, the recruiter chose which sub-scores to use for each role and with what weights.
+The goal was to find, for a given role at a given company, the candidates who fit best and might be willing to join. Each candidate's score combined several sub-scores, from machine-learning models to various compatibility metrics. The sub-scores had different scales, so a normalization layer put them on a common one. In Portal, the startup's app for scoring candidates and selecting whom to contact, the recruiter chose which sub-scores to use for each role and with what weights.
 
 I trained two of these sub-scores, both LightGBM classifiers. They started as proofs of concept and ran in production for almost a year:
 
