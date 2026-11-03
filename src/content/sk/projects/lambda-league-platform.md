@@ -9,7 +9,7 @@ order: 3
 tags: [Python, PostgreSQL, Dagster, FastAPI, AWS, Terraform, Claude Code]
 ---
 
-V dvojčlennom tíme sme si väčšinu práce delili, takže som pracoval takmer na všetkom, od nastavenia Terraformu až po aplikáciu pre kandidátov.
+V dvojčlennom tíme sme si väčšinu práce delili, takže som pracoval naprieč celým *stackom*, od nastavenia Terraformu až po aplikáciu pre kandidátov.
 
 **Dáta.** Databáza Postgres obsahovala údaje o kandidátoch, firmách a školách, často usporiadané do surovej, *staging* a finálnej vrstvy, s vyhľadávacími tabuľkami na rýchle filtrovanie a s množstvom JSONB stĺpcov. Aktualizoval ju denný *job* v Dagsteri, približne s jedným *assetom* na tabuľku, a všetky tabuľky mali svoje modely v SQLAlchemy. Inkrementálne aktualizácie a šírenie nových záznamov do nadväzujúcich tabuliek zabezpečoval malý vlastný *framework*. Aplikáciám sprístupňovalo naše dáta API vo Flasku.
 

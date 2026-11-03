@@ -1,7 +1,7 @@
 ---
 title: Candidate matching and scoring for a recruiting startup
 slug: candidate-scoring
-summary: Worked on the scoring that ranked candidates for each open role, and trained its two machine-learning models, one for how well a role fits a candidate's career and one for how likely they are to change jobs.
+summary: Worked on the scoring that ranked candidates for each open role, and trained its two machine-learning models, one for how well a role fits a candidate's career and one for how likely they are to change jobs. Both ran in production for almost a year.
 company: Lambda League
 role: Software Engineer
 period: 2025–2026

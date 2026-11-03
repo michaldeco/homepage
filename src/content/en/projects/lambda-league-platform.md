@@ -9,7 +9,7 @@ order: 3
 tags: [Python, PostgreSQL, Dagster, FastAPI, AWS, Terraform, Claude Code]
 ---
 
-In a team of two, we shared most of the work, so I worked on almost everything, from the Terraform setup to the candidate-facing app.
+In a team of two, we shared most of the work, so I worked across the whole stack, from the Terraform setup to the candidate-facing app.
 
 **Data.** The Postgres database held candidate, company and school data, often organized in raw, staging and final layers, with search tables for fast filtering and plenty of JSONB columns. A daily Dagster job updated it, with roughly one asset per table, and all tables were mapped to SQLAlchemy models. We had a small custom framework that handled incremental updates and propagated new records downstream. We also had a Flask API that gave the apps access to the data.
 
