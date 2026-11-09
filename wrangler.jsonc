@@ -3,6 +3,10 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "homepage",
   "compatibility_date": "2026-11-01",
+  // The homepage.<account>.workers.dev address, and a preview URL for every branch build.
+  // Set here because Wrangler's config overrides the dashboard on each deploy.
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./dist",
     // Missing pages get the nearest 404.html (sk/404.html under /sk/), with status 404.
