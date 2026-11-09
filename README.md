@@ -51,5 +51,8 @@ npm run preview  # serve the built dist/ locally
 
 ## Deployment
 
-Hosted on Cloudflare, connected to this repo.
-Build command: `npm run build`. Output directory: `dist`.
+Hosted on Cloudflare Workers (static assets only, no Worker code), connected to this repo:
+every push to `main` builds and deploys. Settings in `wrangler.jsonc`.
+Build command: `npm run build`. Deploy command: `npx wrangler deploy`.
+
+To try the site on Cloudflare's runtime locally (404 pages, `_headers`): `npm run build && npx wrangler dev`.

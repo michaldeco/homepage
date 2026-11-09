@@ -1,0 +1,13 @@
+// Cloudflare Workers static assets: the site is served straight from dist/, no Worker code.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "homepage",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    // Missing pages get the nearest 404.html (sk/404.html under /sk/), with status 404.
+    "not_found_handling": "404-page",
+    // /work/<slug> serves work/<slug>.html; /sk redirects to /sk/.
+    "html_handling": "auto-trailing-slash"
+  }
+}
