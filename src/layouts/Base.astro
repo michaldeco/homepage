@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import { homePath, languages, pathsFor, type Lang, type PagePaths } from '../i18n/ui';
+import { homePath, languages, pathsFor, privacyPath, t, type Lang, type PagePaths } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
@@ -53,7 +53,7 @@ const ogLocales: Record<Lang, string> = { en: 'en_US', sk: 'sk_SK' };
       <slot />
     </main>
     <footer>
-      <p>© {new Date().getFullYear()} {profile?.data.name}</p>
+      <p>© {new Date().getFullYear()} {profile?.data.name} · <a href={privacyPath(lang)}>{t(lang)['privacy.link']}</a></p>
     </footer>
   </body>
 </html>

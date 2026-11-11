@@ -47,6 +47,18 @@ const projects = defineCollection({
   }),
 });
 
+// src/content/{en,sk}/privacy.md — the privacy page; title and date in frontmatter, text in the body.
+// Entry ids are `en/privacy` and `sk/privacy`.
+const privacy = defineCollection({
+  loader: glob({ pattern: '*/privacy.md', base: './src/content' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    // Date of the last change, written out in the page's language.
+    updated: z.string(),
+  }),
+});
+
 // src/content/skills.yaml — skill groups, sorted by `order`.
 const skills = defineCollection({
   loader: file('src/content/skills.yaml'),
@@ -70,4 +82,4 @@ const experience = defineCollection({
   }),
 });
 
-export const collections = { profile, projects, skills, experience };
+export const collections = { profile, projects, privacy, skills, experience };
