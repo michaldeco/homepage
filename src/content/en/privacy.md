@@ -4,7 +4,7 @@ description: How this website handles visitors' personal data.
 updated: 11 November 2026
 ---
 
-This website is a static site: it uses no cookies, no analytics or tracking scripts and no forms, and it doesn't load content from other websites.
+This website uses no cookies, no tracking and no forms. To see how many people visit and how fast the pages load, it uses Cloudflare Web Analytics, which collects anonymous, aggregate data (such as page views and load times) without cookies and without identifying visitors.
 
 **Hosting**
 

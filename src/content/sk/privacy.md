@@ -4,7 +4,7 @@ description: Ako táto stránka narába s osobnými údajmi návštevníkov.
 updated: 11. novembra 2026
 ---
 
-Táto stránka je statická: nepoužíva cookies, analytické ani sledovacie skripty, nemá formuláre a nenačítava obsah z iných webov.
+Táto stránka nepoužíva cookies, nesleduje návštevníkov a nemá formuláre. Aby som videl, koľko ľudí ju navštívi a ako rýchlo sa načítava, používa Cloudflare Web Analytics, ktoré zbierajú anonymné súhrnné údaje (napríklad počet zobrazení a čas načítania) bez cookies a bez identifikácie návštevníkov.
 
 **Hosting**
 
