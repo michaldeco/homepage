@@ -1,0 +1,41 @@
+---
+// The privacy page: the Markdown in src/content/{en,sk}/privacy.md, with a way back to the homepage.
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import LangSwitch from './LangSwitch.astro';
+import { homePath, pathsFor, privacyPath, t, type Lang } from '../i18n/ui';
+import { typographyFor } from '../i18n/typography.mjs';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const ui = t(lang);
+const typo = typographyFor(lang);
+
+const profile = await getEntry('profile', `${lang}/profile`);
+const page = await getEntry('privacy', `${lang}/privacy`);
+if (!page) throw new Error(`Missing src/content/${lang}/privacy.md`);
+const { Content } = await render(page);
+const { title, description, updated } = page.data;
+const paths = pathsFor(privacyPath);
+const back = homePath(lang);
+---
+
+<Base title={`${title} — ${profile?.data.name}`} description={description} lang={lang} paths={paths}>
+  <nav class="sections" aria-label={ui['project.navLabel']}>
+    <div class="section-links">
+      <a href={back}><span aria-hidden="true">← </span>{ui['privacy.back']}</a>
+    </div>
+    <LangSwitch lang={lang} paths={paths} />
+  </nav>
+
+  <article class="story">
+    <header>
+      <h1>{typo(title)}</h1>
+      <p class="role">{ui['privacy.updated']} {updated}</p>
+    </header>
+    <Content />
+  </article>
+</Base>

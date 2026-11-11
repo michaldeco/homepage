@@ -13,11 +13,12 @@ Content lives in plain Markdown/YAML files; the build turns it into static HTML.
 | Employment history (with optional logos) | `src/content/experience.yaml` + logo files in `public/logos/` |
 | Profile photo (optional) | `public/photo.jpg`, then uncomment the `<img>` in `src/components/Home.astro` |
 | Share preview image (link previews on LinkedIn, Slack, …) | edit `design/og-image.svg`, then `rsvg-convert design/og-image.svg -o public/og-image.png`; Slovak: `og-image-sk.svg` → `og-image-sk.png` |
+| Privacy page (`/privacy`; link in the footer). Update `updated` in both languages when the text changes | `src/content/en/privacy.md` (Slovak: `src/content/sk/privacy.md`) |
 | Fixed texts (navigation, headings, "know more" link, 404 page) | `src/i18n/ui.ts` |
 
 Layout and styles: `src/layouts/Base.astro`, `src/components/Home.astro`, `src/styles/global.css`.
 Project pages: `src/components/ProjectPage.astro` (routes in `src/pages/work/` and `src/pages/sk/work/`).
-Not-found page: `src/components/NotFound.astro`. Response headers on Cloudflare: `public/_headers`.
+Privacy page: `src/components/PrivacyPage.astro`. Not-found page: `src/components/NotFound.astro`. Response headers on Cloudflare: `public/_headers`.
 
 ## Slovak version
 

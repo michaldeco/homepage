@@ -24,6 +24,9 @@ const en = {
   'notFound.title': 'Page not found',
   'notFound.text': "This page doesn't exist, or it has moved.",
   'notFound.back': 'Back to the homepage',
+  'privacy.link': 'Privacy',
+  'privacy.back': 'Back to the homepage',
+  'privacy.updated': 'Last updated:',
   'switch.title': 'English version',
   'switch.navLabel': 'Language',
 };
@@ -48,6 +51,9 @@ const sk: Record<keyof typeof en, string> = {
   'notFound.title': 'Stránka sa nenašla',
   'notFound.text': 'Táto stránka neexistuje alebo bola presunutá.',
   'notFound.back': 'Späť na úvodnú stránku',
+  'privacy.link': 'Ochrana súkromia',
+  'privacy.back': 'Späť na úvodnú stránku',
+  'privacy.updated': 'Posledná zmena:',
   'switch.title': 'Slovenská verzia',
   'switch.navLabel': 'Jazyk',
 };
@@ -78,6 +84,9 @@ export const homePath = (lang: Lang) => (lang === defaultLang ? '/' : `/${lang}/
 
 // A project's own page: /work/<slug>, or /sk/work/<slug>.
 export const projectPath = (lang: Lang, slug: string) => `${homePath(lang)}work/${slug}`;
+
+// The privacy page: /privacy, or /sk/privacy.
+export const privacyPath = (lang: Lang) => `${homePath(lang)}privacy`;
 
 // The same page in every language, e.g. for hreflang links and the language switch.
 export type PagePaths = Record<Lang, string>;
