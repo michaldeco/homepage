@@ -22,6 +22,7 @@ At U. S. Steel Košice, I spent more than four years on a toolkit that combines
 
 - Before I start, we agree on what "done" means: either a concrete specification, such as a new API endpoint and its expected responses, or a measurable target, such as a model's accuracy or a process's run time on an agreed test set.
 - I prefer well-established tools to home-grown frameworks, and clear architecture to clever code.
+- I prefer configuration in code to clicking through user interfaces: infrastructure in Terraform, pipelines and settings in files. It gives one reviewable source of truth for colleagues and for AI agents alike.
 - I use AI tools in my work, from designing a solution to implementing it, and I always make sure I understand the solution.
 - I write tests as I go, including UI tests. They also make AI-assisted development more reliable, because the AI agent can see from the test results what broke.
 - I document what I build and discuss trade-offs openly.
